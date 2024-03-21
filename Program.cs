@@ -1,10 +1,13 @@
 using WebAppMongo.Models;
+using WebAppMongo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<SchneiderDatabaseSettings>(
     builder.Configuration.GetSection("SchneiderDatabase"));
 
 // Add services to the container.
+
+builder.Services.AddSingleton<UserService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
